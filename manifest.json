@@ -1,0 +1,22 @@
+{
+    "name": "service-tester",
+    "version": "0.0.1",
+    "icons": {
+        "16": "/img/icons/icon_16.png",
+        "48": "/img/icons/icon_48.png",
+        "128": "/img/icons/icon_128.png"
+    },
+
+    "description": "simple approach for service testing",
+    "permissions": ["http://*/*/", "https://*/*/", "storage"],
+    "app": {
+        "background": {
+            "scripts": [
+            "background.js"
+            ],
+            "persistent": false
+        }
+    },
+
+    "manifest_version": 2
+}
