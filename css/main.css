@@ -108,6 +108,10 @@ body {
     margin: 20px 0;
 }
 
+.info-lnk {
+    margin: 28px 10px;
+}
+
 .action-type-btn {
     min-width:100px;
     background-color: #e6e6e6;
@@ -117,3 +121,9 @@ body {
     background-color: #ffffff;
 }
 
+pre {
+    -webkit-user-select: text;
+    padding: 0px 30px;
+    background-color: transparent;
+    border: none;
+}
