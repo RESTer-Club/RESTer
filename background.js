@@ -1,5 +1,5 @@
 chrome.app.runtime.onLaunched.addListener(function () {
-    chrome.app.window.create('view/main.html', {
+    chrome.app.window.create('views/main.html', {
         state: 'maximized',
         minWidth: 500,
         minHeight: 600
