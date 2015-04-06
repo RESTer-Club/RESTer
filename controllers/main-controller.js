@@ -1,70 +1,66 @@
 angular.module('rester', [])
-    .controller('httpRequestController', function () {
-        var httpRequester = this;
+    .controller('httpRequestController', ['$scope',
+        function ($scope) {
 
-        httpRequester.uri = "";
+            $scope.uri = "http://abv.bg";
+            $scope.statusText = "";
+            $scope.methods = ['GET', 'POST', 'PUT', 'DELETE'];
+            $scope.currentMethod = $scope.methods[0];
 
-        httpRequester.methods = [
-            {
-                text: 'GET'
-            },
-            {
-                text: 'POST'
-            },
-            {
-                text: 'PUT'
-            },
-            {
-                text: 'DELETE'
-            }
-    ];
-
-        httpRequester.currentMethod = httpRequester.methods[0];
-
-        httpRequester.setMethod = function (methodType) {
-            if (typeof (methodType) === 'undefined') {
-                return;
-            }
-
-            httpRequester.currentMethod = methodType;
-        };
-
-        httpRequester.send = function () {
-            if(httpRequester.uri.length == 0){
-                mainView.setResponse();
-                return;
-            }
-            
-            var request = $.ajax({
-                method: httpRequester.currentMethod.text,
-                url: httpRequester.uri
-            });
-
-            request.done(function (data, statusText, xhr) {
-                if (typeof (xhr) === 'undefined') {
-                    return;
-                }
-                
-                var contentType = xhr.getResponseHeader("content-type") || "";
-                var statusCode = xhr.status;
-                
-                mainView.setResponse(data, contentType); 
-                mainView.setStatus(statusCode, statusText);
-            });
-
-            request.fail(function (xhr, statusText) {
-                if (typeof (xhr) === 'undefined') {
+            $scope.setMethod = function (methodType) {
+                if (typeof (methodType) === 'undefined') {
                     return;
                 }
 
-                var statusCode = xhr.status;
+                $scope.currentMethod = methodType;
+            };
 
-                mainView.setResponse();
-                mainView.setStatus(statusCode, statusText);
-            });
-        };
+            $scope.send = function () {
+                if ($scope.uri.length == 0) {
+                    $scope.response = "ERROR";
+                    return;
+                }
 
-        httpRequester.reset = function () {
-            console.log("test");
-        };
-    });
+                var request = $.ajax({
+                    method: $scope.currentMethod,
+                    url: $scope.uri
+                });
+
+                request.done(function (data, statusText, xhr) {
+                    if (typeof (xhr) === 'undefined') {
+                        return;
+                    }
+
+                    var contentType = xhr.getResponseHeader("content-type") || "";
+
+                    mainView.setResponse(data, contentType);
+                    setStatusText(xhr);
+                    $scope.$apply();
+                });
+
+                request.fail(function (xhr, statusText) {
+                    if (typeof (xhr) === 'undefined') {
+                        return;
+                    }
+
+                    $scope.response = "ERROR";
+                    setStatusText(xhr);
+                    $scope.$apply();
+                });
+            };
+
+            setStatusText = function (xhr) {
+                if (typeof (xhr) === 'undefined') {
+                    return;
+                }
+
+                var statusCode = xhr.status || "",
+                    statusText = xhr.statusText || "";
+
+                $scope.statusText = statusCode + ": " + statusText;
+            }
+
+            $scope.reset = function () {
+                console.log("test");
+            };
+    }]);

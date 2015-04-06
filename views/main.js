@@ -3,7 +3,8 @@ var mainView = (function () {
     return {
         setResponse: function (data, contentType) {
             var responseEl = $("#response"),
-                statusLabelEl = $("#status-label");
+                responseHtml = $("html-container");
+
 
             if (typeof (data) === 'undefined' ||
                 typeof (contentType) === 'undefined') {
@@ -25,19 +26,6 @@ var mainView = (function () {
                 responseEl.jsonViewer("NOT HANDLED");
             }
         },
-
-        setStatus: function (code, text) {
-            var responseEl = $("#response"),
-                statusLabelEl = $("#status-label");
-
-            if (typeof (code) === 'undefined' ||
-                typeof (text) === 'undefined') {
-                statusLabelEl.jsonViewer("ERROR");
-                return;
-            }
-
-            statusLabelEl.text(code + ": " + text);
-        }
     };
 
 }());
