@@ -3,7 +3,7 @@ angular.module('rester', [])
         function ($scope) {
 
             $scope.uri = "http://jsonplaceholder.typicode.com/posts/1";
-            $scope.statusText = "";
+            $scope.statusText = "STATUS";
             $scope.methods = ['GET', 'POST', 'PUT', 'DELETE'];
             $scope.currentMethod = $scope.methods[0];
             $scope.windowWidth = 800;
@@ -59,6 +59,7 @@ angular.module('rester', [])
                     }
 
                     codeMirrorUtils.setValue("");
+                    $("#json-response").jsonViewer("");
                     setStatusText(xhr);
                     $scope.$apply();
                 });
@@ -76,6 +77,10 @@ angular.module('rester', [])
             }
 
             $scope.reset = function () {
-                console.log("test");
+                codeMirrorUtils.setValue("");
+                $("#json-response").jsonViewer("");
+                $scope.uri = "";
+                $scope.statusText = "STATUS";
+                $scope.currentMethod = $scope.methods[0];
             };
     }]);

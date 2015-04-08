@@ -109,8 +109,8 @@ body {
     border-radius: 50%;
 }
 
-.send-btn {
-    margin: 20px 0;
+.custom-btn {
+    margin: 20px 10px 10px 0px;
 }
 
 .info-lnk {
@@ -127,7 +127,7 @@ body {
 }
 
 .status-container {
-    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
 .row {
@@ -140,10 +140,12 @@ pre {
     padding: 0px 30px;
     background-color: transparent;
     border: none;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
 }
 
 .CodeMirror {
     border-top: 1px solid #eee;
     height: auto;
-    padding-top: 10px;
+
 }

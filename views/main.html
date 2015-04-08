@@ -73,9 +73,13 @@
                         </div>
                         <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="uri">
                     </div>
-                    <button type="button" class="btn btn-info send-btn col-lg-1" ng-click="send()">Send</button>
-                    <div class="col-md-3 status-container">
-                        <span class="label label-default">{{ statusText }}</span>
+                    <div>
+                        <button type="button" class="btn btn-info custom-btn col-lg-1" ng-click="send()">Send</button>
+                        <button type="button" class="btn btn-danger custom-btn" ng-click="reset()">Reset</button>
+                    </div>
+                    <div class="status-container">
+                        <span class="label label-success">{{ statusText }}</span>
+                        <span class="label label-default">TIME</span>
                     </div>
                 </div>
                 <div class="col-lg-6 hide" style="width: {{ windowWidth }}px" id="markdown-response">
