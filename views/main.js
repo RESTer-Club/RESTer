@@ -14,6 +14,7 @@ var mainView = (function () {
 
             if (contentType.indexOf('html') > -1) {
                 //HTML response
+                codeMirrorUtils.setMode("text/html");
                 codeMirrorUtils.setValue(data);
             } else if (contentType.indexOf('json') > -1) {
                 //JSON response
@@ -22,7 +23,7 @@ var mainView = (function () {
             } else {
                 console.warn("Not Handled");
             }
-        },
+        }
     };
 
 }());

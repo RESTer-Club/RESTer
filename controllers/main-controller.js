@@ -10,13 +10,15 @@ angular.module('rester', [])
 
             $(window).resize(function () {
 
-                $scope.windowWidth = window.innerWidth - 230;
+                var correction = $("#main-navbar").width();
+                $scope.windowWidth = window.innerWidth - correction - 40;
                 $scope.$apply();
             });
 
             $(document).ready(function () {
 
-                $scope.windowWidth = window.innerWidth - 230;
+                var correction = $("#main-navbar").width();
+                $scope.windowWidth = window.innerWidth - correction - 40;
                 $scope.$apply();
             });
 
@@ -56,7 +58,7 @@ angular.module('rester', [])
                         return;
                     }
 
-                    $scope.response = "ERROR";
+                    codeMirrorUtils.setValue("");
                     setStatusText(xhr);
                     $scope.$apply();
                 });

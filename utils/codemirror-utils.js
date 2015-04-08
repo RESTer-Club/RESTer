@@ -13,9 +13,11 @@ var codeMirrorUtils = (function () {
                 mode: "xml",
                 lineWrapping: true,
                 viewportMargin: Infinity,
-//                lineNumbers: true,
-//                matchBrackets: true,
-//                autoCloseBrackets: true
+                lineNumbers: true,
+                foldGutter: true,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+                    //                matchBrackets: true,
+                    //                autoCloseBrackets: true
             });
         },
         setValue: function (content) {
@@ -26,11 +28,15 @@ var codeMirrorUtils = (function () {
             codeMirror.getDoc().setValue(content);
         },
         setMode: function (mode) {
-            if (codeMirror == null || typeof (mode) === 'undefined') {
+            this.setOption("mode", mode);
+        },
+        setOption: function (option, value) {
+            if (codeMirror == null || typeof (option) === 'undefined' || typeof (value) === 'undefined') {
+                console.error("Can't set option");
                 return;
             }
 
-            codeMirror.setOption("mode", mode);
+            codeMirror.setOption(option, value);
         },
         clear: function () {
             this.setValue("");

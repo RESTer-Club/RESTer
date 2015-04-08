@@ -4,6 +4,7 @@
 <head>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../node_modules/codemirror/lib/codemirror.css" rel="stylesheet">
+    <link href="../node_modules/codemirror/addon/fold/foldgutter.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -16,11 +17,19 @@
     <!--    CodeMirror modes-->
     <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
     <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../node_modules/codemirror/mode/markdown/markdown.js"></script>
 
     <!--    CodeMirror addons-->
     <script src="../node_modules/codemirror/addon/edit/matchbrackets.js"></script>
     <script src="../node_modules/codemirror/addon/comment/continuecomment.js"></script>
     <script src="../node_modules/codemirror/addon/comment/comment.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/foldcode.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/xml-fold.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/markdown-fold.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/comment-fold.js"></script>
+    
 </head>
 
 <body>
@@ -41,9 +50,9 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 col-md-1 sidebar">
+            <div class="col-sm-3 col-md-1 sidebar" id="main-navbar">
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a>
                 </ul>
