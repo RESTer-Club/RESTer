@@ -6,6 +6,7 @@ $(document).ready(function () {
 var codeMirrorUtils = (function () {
 
     var codeMirror = null;
+    var containerId = "#markdown-response";
 
     return {
         init: function (elementId) {
@@ -19,13 +20,22 @@ var codeMirrorUtils = (function () {
                 matchBrackets: true,
                 autoCloseBrackets: true
             });
+
+            this.hide();
         },
         setValue: function (content) {
             if (codeMirror == null || typeof (content) === 'undefined') {
                 return;
             }
 
+            this.show();
             codeMirror.getDoc().setValue(content);
+        },
+        show: function () {
+            $(containerId).removeClass('hide');
+        },
+        hide: function () {
+            $(containerId).addClass('hide');
         },
         setMode: function (mode) {
             this.setOption("mode", mode);
