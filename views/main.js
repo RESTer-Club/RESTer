@@ -8,22 +8,19 @@ var mainView = (function () {
 
             if (typeof (data) === 'undefined' ||
                 typeof (contentType) === 'undefined') {
-                responseEl.jsonViewer("ERROR");
-                return;
-            }
-
-            if (typeof (contentType) === 'undefined') {
-                responseEl.jsonViewer("ERROR");
+                console.error("Can't set response");
                 return;
             }
 
             if (contentType.indexOf('html') > -1) {
                 //HTML response
+                codeMirrorUtils.setValue(data);
             } else if (contentType.indexOf('json') > -1) {
                 //JSON response
-                responseEl.jsonViewer(data);
+                codeMirrorUtils.setMode("application/ld+json");
+                codeMirrorUtils.setValue(data);
             } else {
-                responseEl.jsonViewer("NOT HANDLED");
+                console.warn("Not Handled");
             }
         },
     };

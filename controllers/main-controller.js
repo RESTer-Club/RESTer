@@ -2,10 +2,23 @@ angular.module('rester', [])
     .controller('httpRequestController', ['$scope',
         function ($scope) {
 
-            $scope.uri = "http://abv.bg";
+            $scope.uri = "http://google.com";
             $scope.statusText = "";
             $scope.methods = ['GET', 'POST', 'PUT', 'DELETE'];
             $scope.currentMethod = $scope.methods[0];
+            $scope.windowWidth = 800;
+
+            $(window).resize(function () {
+
+                $scope.windowWidth = window.innerWidth - 230;
+                $scope.$apply();
+            });
+
+            $(document).ready(function () {
+
+                $scope.windowWidth = window.innerWidth - 230;
+                $scope.$apply();
+            });
 
             $scope.setMethod = function (methodType) {
                 if (typeof (methodType) === 'undefined') {

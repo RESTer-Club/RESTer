@@ -3,14 +3,24 @@
 
 <head>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css" rel="stylesheet">
+    <link href="../node_modules/codemirror/lib/codemirror.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
     <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
     <script src="main.js"></script>
     <script src="../controllers/main-controller.js"></script>
+    <script src="../utils/codemirror-utils.js"></script>
+
+    <!--    CodeMirror modes-->
+    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+
+    <!--    CodeMirror addons-->
+    <script src="../node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="../node_modules/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="../node_modules/codemirror/addon/comment/comment.js"></script>
 </head>
 
 <body>
@@ -31,7 +41,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-1 sidebar">
                 <ul class="nav nav-sidebar">
@@ -54,9 +64,13 @@
                         <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="uri">
                     </div>
                     <button type="button" class="btn btn-info send-btn col-lg-1" ng-click="send()">Send</button>
-                    <div class="col-md-3"><h4 id="status-label" class="info-lnk">{{ statusText }}</h4></div>
+                    <div class="col-md-3 status-container">
+                        <span class="label label-default">{{ statusText }}</span>
+                    </div>
                 </div>
-                <pre id="response"></pre>
+                <div class="col-lg-6" style="width: {{ windowWidth }}px">
+                    <textarea id="codemirror"></textarea>
+                </div>
             </div>
         </div>
     </div>
