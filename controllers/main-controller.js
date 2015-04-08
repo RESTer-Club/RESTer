@@ -2,7 +2,7 @@ angular.module('rester', [])
     .controller('httpRequestController', ['$scope',
         function ($scope) {
 
-            $scope.uri = "http://google.com";
+            $scope.uri = "http://jsonplaceholder.typicode.com/posts/1";
             $scope.statusText = "";
             $scope.methods = ['GET', 'POST', 'PUT', 'DELETE'];
             $scope.currentMethod = $scope.methods[0];
@@ -32,7 +32,7 @@ angular.module('rester', [])
 
             $scope.send = function () {
                 if ($scope.uri.length == 0) {
-                    $scope.response = "ERROR";
+                    console.error("uri is not set");
                     return;
                 }
 

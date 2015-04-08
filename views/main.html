@@ -5,9 +5,11 @@
     <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../node_modules/codemirror/lib/codemirror.css" rel="stylesheet">
     <link href="../node_modules/codemirror/addon/fold/foldgutter.css" rel="stylesheet">
+    <link href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/codemirror/lib/codemirror.js"></script>
     <script src="main.js"></script>
@@ -29,11 +31,10 @@
     <script src="../node_modules/codemirror/addon/fold/xml-fold.js"></script>
     <script src="../node_modules/codemirror/addon/fold/markdown-fold.js"></script>
     <script src="../node_modules/codemirror/addon/fold/comment-fold.js"></script>
-    
+
 </head>
 
 <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -77,9 +78,10 @@
                         <span class="label label-default">{{ statusText }}</span>
                     </div>
                 </div>
-                <div class="col-lg-6" style="width: {{ windowWidth }}px">
+                <div class="col-lg-6" style="width: {{ windowWidth }}px" id="markdown-response">
                     <textarea id="codemirror"></textarea>
                 </div>
+                <pre id="json-response"></pre>
             </div>
         </div>
     </div>

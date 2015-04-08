@@ -15,9 +15,9 @@ var codeMirrorUtils = (function () {
                 viewportMargin: Infinity,
                 lineNumbers: true,
                 foldGutter: true,
-                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
-                    //                matchBrackets: true,
-                    //                autoCloseBrackets: true
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                matchBrackets: true,
+                autoCloseBrackets: true
             });
         },
         setValue: function (content) {

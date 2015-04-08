@@ -135,6 +135,13 @@ body {
   margin-left: -50px;
 }
 
+pre {
+    -webkit-user-select: text;
+    padding: 0px 30px;
+    background-color: transparent;
+    border: none;
+}
+
 .CodeMirror {
     border-top: 1px solid #eee;
     height: auto;
