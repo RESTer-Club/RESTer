@@ -1,99 +1,29 @@
-<!DOCTYPE html>
-<html ng-app="rester">
-
-<head>
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="../node_modules/codemirror/lib/codemirror.css" rel="stylesheet">
-    <link href="../node_modules/codemirror/addon/fold/foldgutter.css" rel="stylesheet">
-    <link href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css" rel="stylesheet">
-    <link href="main.css" rel="stylesheet">
-
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
-    <script src="../node_modules/angular/angular.js"></script>
-    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
-    <script src="main.js"></script>
-    <script src="../controllers/main-controller.js"></script>
-    <script src="../utils/codemirror-utils.js"></script>
-
-    <!--    CodeMirror modes-->
-    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
-    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
-    <script src="../node_modules/codemirror/mode/markdown/markdown.js"></script>
-
-    <!--    CodeMirror addons-->
-    <script src="../node_modules/codemirror/addon/edit/matchbrackets.js"></script>
-    <script src="../node_modules/codemirror/addon/comment/continuecomment.js"></script>
-    <script src="../node_modules/codemirror/addon/comment/comment.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/foldcode.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/foldgutter.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/brace-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/xml-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/markdown-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/comment-fold.js"></script>
-
-</head>
-
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img src="../img/logo.png">
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 col-md-1 sidebar" id="main-navbar">
-                <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-offset-1 main sidebar main-container">
-            <div class="row" ng-controller="httpRequestController as httpRequester">
-                <div class="col-lg-12">
-                    <div class="input-group">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-default dropdown-toggle action-type-btn" data-toggle="dropdown" aria-expanded="false">{{ currentMethod }}
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li ng-repeat="method in methods" ng-click="setMethod(method)"><a href="#">{{ method }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="uri">
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-info custom-btn col-lg-1" ng-click="send()">Send</button>
-                        <button type="button" class="btn btn-danger custom-btn" ng-click="reset()">Reset</button>
-                    </div>
-                    <div class="status-container">
-                        <span class="label label-success">{{ statusText }}</span>
-                        <span class="label label-default">TIME</span>
-                    </div>
+<div class="col-md-offset-1 main sidebar main-container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle action-type-btn" data-toggle="dropdown" aria-expanded="false">{{ vm.currentMethod }}
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="method in vm.methods" ng-click="vm.setMethod(method)"><a href="#">{{ method }}</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-6 hide" style="width: {{ windowWidth }}px" id="markdown-response">
-                    <textarea id="codemirror"></textarea>
-                </div>
-                <pre id="json-response"></pre>
+                <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="uri">
+            </div>
+            <div>
+                <button type="button" class="btn btn-info custom-btn col-lg-1" ng-click="send()">Send</button>
+                <button type="button" class="btn btn-danger custom-btn" ng-click="reset()">Reset</button>
+            </div>
+            <div class="status-container">
+                <span class="label label-success">{{ vm.statusText }}</span>
+                <span class="label label-default">TIME</span>
             </div>
         </div>
+        <div class="col-lg-6 hide" style="width: {{ windowWidth }}px" id="markdown-response">
+            <textarea id="codemirror"></textarea>
+        </div>
+        <pre id="json-response"></pre>
     </div>
-
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-</body>
-
-</html>
+</div>
