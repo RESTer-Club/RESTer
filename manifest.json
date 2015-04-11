@@ -2,9 +2,9 @@
     "name": "service-tester",
     "version": "0.0.1",
     "icons": {
-        "16": "/img/icons/icon_16.png",
-        "48": "/img/icons/icon_48.png",
-        "128": "/img/icons/icon_128.png"
+        "16": "/images/icons/icon_16.png",
+        "48": "/images/icons/icon_48.png",
+        "128": "/images/icons/icon_128.png"
     },
 
     "description": "simple approach for service testing",

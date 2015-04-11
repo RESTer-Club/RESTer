@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="RESTer" class="no-js">
+<html lang="en" ng-app="RESTer" class="no-js" ng-csp>
 
 <head>
     <meta charset="utf-8">
@@ -8,20 +8,18 @@
     <link rel="stylesheet" href="node_modules/codemirror/addon/fold/foldgutter.css">
     <link rel="stylesheet" href="node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css">
     <link rel="stylesheet" href="app.css">
-
 </head>
 
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img src="img/logo.png">
+                <a class="navbar-brand" href="">
+                    <img src="images/logo.png">
                 </a>
             </div>
         </div>
     </nav>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-1 sidebar" id="main-navbar">
@@ -30,29 +28,23 @@
                 </ul>
             </div>
         </div>
-        <div ng-view></div>
     </div>
-
-    <!--    jQuery-->
+    <div ng-view></div>
+    <!--jQuery-->
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
-
-    <!--    Bootstrap-->
+    <!--Bootstrap-->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-    <!--    AngularJS-->
+    <!--AngularJS-->
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-route/angular-route.js"></script>
-
-    <!--    CodeMirror-->
+    <!--CodeMirror-->
     <script src="node_modules/codemirror/lib/codemirror.js"></script>
-
-    <!--    CodeMirror modes-->
+    <!--CodeMirror modes-->
     <script src="node_modules/codemirror/mode/xml/xml.js"></script>
     <script src="node_modules/codemirror/mode/javascript/javascript.js"></script>
     <script src="node_modules/codemirror/mode/markdown/markdown.js"></script>
-
-    <!--    CodeMirror addons-->
+    <!--CodeMirror addons-->
     <script src="node_modules/codemirror/addon/edit/matchbrackets.js"></script>
     <script src="node_modules/codemirror/addon/comment/continuecomment.js"></script>
     <script src="node_modules/codemirror/addon/comment/comment.js"></script>
@@ -62,12 +54,14 @@
     <script src="node_modules/codemirror/addon/fold/xml-fold.js"></script>
     <script src="node_modules/codemirror/addon/fold/markdown-fold.js"></script>
     <script src="node_modules/codemirror/addon/fold/comment-fold.js"></script>
-
-    <!--    Modules-->
-    <script src="requester/requester.js"></script>
-
+    <!-- App -->
     <script src="app.js"></script>
-
+    <!-- Services -->
+    <script src="common/services/request.js"></script>
+    <!-- Directives -->
+    <script src="common/directives/response-browser/response-browser.js"></script>
+    <!--Controllers-->
+    <script src="requester/requester.js"></script>
 </body>
 
 </html>
