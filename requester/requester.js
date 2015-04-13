@@ -51,11 +51,11 @@ angular.module('RESTer.requester', ['ngRoute'])
                 if (typeof (xhr) === 'undefined') {
                     return;
                 }
-                $scope.responseTime = (Date.now() - requestTime) + 'ms';
+                $scope.responseTime = (Date.now() - requestTime) + ' ms';
 
                 var contentType = xhr.getResponseHeader("content-type") || "";
                 $scope.contentType = contentType;
-                $scope.response = data;
+                $scope.response = xhr.responseText;
                 $scope.statusCode = xhr.status || "";
                 $scope.statusText = $scope.statusCode + ": " + xhr.statusText || "";
                 $scope.$apply();
