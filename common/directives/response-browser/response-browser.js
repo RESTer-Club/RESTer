@@ -32,6 +32,7 @@ app.directive('responseBrowser', function () {
                 } else if (value.indexOf('json') > -1) {
                     _contentType = 'json';
                 } else {
+                    _contentType = 'html';
                     console.warn("Not Handled");
                 }
             });
