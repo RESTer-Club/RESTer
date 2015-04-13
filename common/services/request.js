@@ -1,10 +1,12 @@
-app.service('Request', function(Request) {
+app.factory('Request', function () {
 
-    this.execute = function(uri, method) {
-        var request = $.ajax({
-            method: method,
-            url: uri
-        });
-    };
+    return {
+        execute: function (uri, method) {
+            return $.ajax({
+                method: method,
+                url: uri
+            });
+        }
+    }
 
 });

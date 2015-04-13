@@ -14,8 +14,8 @@ angular.module('RESTer.requester', ['ngRoute'])
         });
 }])
 
-.controller('RequesterController', ["$scope",
-    function ($scope) {
+.controller('RequesterController', ["$scope","Request",
+    function ($scope, Request) {
 
         $scope.uri = "http://jsonplaceholder.typicode.com/posts/1";
         $scope.statusText;
@@ -42,10 +42,7 @@ angular.module('RESTer.requester', ['ngRoute'])
             }
 
             var requestTime= Date.now();
-            var request = $.ajax({
-                method: $scope.currentMethod,
-                url: $scope.uri
-            });
+            var request = Request.execute($scope.uri, $scope.currentMethod);
 
             request.done(function (data, statusText, xhr) {
                 if (typeof (xhr) === 'undefined') {
