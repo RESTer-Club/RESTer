@@ -8,9 +8,6 @@ var app = angular.module('RESTer', [
 config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
-            .when('#', {
-
-            })
             .otherwise({
                 redirectTo: '/requester'
             });

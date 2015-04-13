@@ -20,11 +20,16 @@ app.directive('responseBrowser', function () {
                 if (typeof (value) == 'undefined') {
                     return;
                 }
+
+                if (value.length == 0) {
+                    return;
+                }
+
                 if (value.indexOf('html') > -1) {
-                    //HTML response
+                    _contentType = 'html';
+                } else if (value.indexOf('xml') > -1) {
                     _contentType = 'html';
                 } else if (value.indexOf('json') > -1) {
-                    //JSON response
                     _contentType = 'json';
                 } else {
                     console.warn("Not Handled");
@@ -33,6 +38,11 @@ app.directive('responseBrowser', function () {
 
             attrs.$observe("response", function (value) {
                 if (typeof (value) == 'undefined') {
+                    return;
+                }
+
+                if (value.length == 0) {
+                    hide();
                     return;
                 }
 
@@ -60,6 +70,11 @@ app.directive('responseBrowser', function () {
             function prepareForHtmlResponse() {
                 //Show CodeMirror and hide json viewer
                 $(CODE_MIRROR_CONTAINER).removeClass('hide');
+                $(JSON_VIEWER_CONTROL).addClass('hide');
+            };
+
+            function hide() {
+                $(CODE_MIRROR_CONTAINER).addClass('hide');
                 $(JSON_VIEWER_CONTROL).addClass('hide');
             };
 

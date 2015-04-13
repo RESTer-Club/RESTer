@@ -1,4 +1,4 @@
-<div class="col-md-offset-1 main sidebar main-container">
+<div class="col-md-offset-1 main sidebar main-container container-fluid">
     <div class="row">
         <div class="col-lg-12">
             <div class="input-group">
@@ -12,15 +12,22 @@
                 </div>
                 <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="uri">
             </div>
-            <div>
-                <button type="button" class="btn btn-info custom-btn col-lg-1" ng-click="send()">Send</button>
-                <button type="button" class="btn btn-danger custom-btn" ng-click="reset()">Reset</button>
-            </div>
-            <div class="status-container">
-                <span class="label label-success">{{ statusText }}</span>
-                <span class="label label-default">TIME</span>
+        </div>
+        <div class="action-area col-md-1">
+            <!-- Split button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-info action-btn" ng-click="send()">Send</button>
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="" ng-click="reset()">Reset</a>
+                    </li>
+
+                </ul>
             </div>
         </div>
+        <status-area code="{{ statusCode }}"></status-area>
         <response-browser content-type="{{ contentType }}" response="{{ response }}"></response-browser>
     </div>
 </div>
