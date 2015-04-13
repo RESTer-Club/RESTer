@@ -109,12 +109,18 @@ body {
     border-radius: 50%;
 }
 
-.custom-btn {
-    margin: 20px 10px 10px 0px;
+.action-area {
+    margin: 15px 0px 10px 0px;
+    min-width: 130px;
 }
 
-.info-lnk {
-    margin: 28px 10px;
+.action-btn {
+    width: 75px;
+}
+
+.status-area {
+    margin: 20px 10px 10px 0px;
+    padding-left: 0px;
 }
 
 .action-type-btn {
@@ -130,22 +136,24 @@ body {
     margin-bottom: 5px;
 }
 
+.time {
+    margin-bottom: 20px !important;
+}
+
 .row {
-  margin-right: -50px;
-  margin-left: -50px;
+  margin-right: -40px;
+  margin-left: -40px;
 }
 
 pre {
     -webkit-user-select: text;
-    padding: 0px 30px;
+    padding: 0px 15px;
     background-color: transparent;
     border: none;
-    border-top: 1px solid #eee;
     padding-top: 10px;
 }
 
 .CodeMirror {
-    border-top: 1px solid #eee;
     height: auto;
 
 }
