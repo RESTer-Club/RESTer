@@ -4,7 +4,8 @@ app.factory('Request', function () {
         execute: function (uri, method) {
             return $.ajax({
                 method: method,
-                url: uri
+                url: uri,
+                headers: { 'x-my-custom-header': 'some value' }
             });
         }
     }
