@@ -127,6 +127,10 @@ body {
     margin: 15px 0px 10px 0px;
 }
 
+.headers-area {
+    margin: 0px 35px;
+}
+
 .action-type-btn {
     min-width: 100px;
     background-color: #e6e6e6;
