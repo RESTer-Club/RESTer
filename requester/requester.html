@@ -23,11 +23,15 @@
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="" ng-click="reset()"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Reset</a>
                     </li>
-
                 </ul>
             </div>
         </div>
-        <status-area code="{{ statusCode }}"></status-area>
+        <div class="status-area col-md-1">
+            <status-area code="{{ statusCode }}"></status-area>
+        </div>
+        <div class="col-md-2">
+            <headers></headers>
+        </div>
         <response-browser content-type="{{ contentType }}" response="{{ response }}"></response-browser>
     </div>
 </div>

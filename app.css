@@ -123,6 +123,10 @@ body {
     padding-left: 0px;
 }
 
+.headers-button {
+    margin: 15px 0px 10px 0px;
+}
+
 .action-type-btn {
     min-width: 100px;
     background-color: #e6e6e6;
@@ -141,8 +145,8 @@ body {
 }
 
 .row {
-  margin-right: -40px;
-  margin-left: -40px;
+    margin-right: -40px;
+    margin-left: -40px;
 }
 
 pre {
@@ -155,5 +159,4 @@ pre {
 
 .CodeMirror {
     height: auto;
-
 }
