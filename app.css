@@ -138,6 +138,7 @@ body {
 
 .main-container {
     background-color: #ffffff;
+    min-width: 1500px;
 }
 
 .status-container {

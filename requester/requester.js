@@ -25,6 +25,7 @@ angular.module('RESTer.requester', ['ngRoute'])
         $scope.contentType;
         $scope.response;
         $scope.responseTime;
+        $scope.headers = [];
 
         $scope.setMethod = function (methodType) {
             if (typeof (methodType) === 'undefined') {
@@ -42,7 +43,7 @@ angular.module('RESTer.requester', ['ngRoute'])
             }
 
             var requestTime= Date.now();
-            var request = Request.execute($scope.uri, $scope.currentMethod);
+            var request = Request.execute($scope.uri, $scope.currentMethod,$scope.headers);
 
             request.done(function (data, statusText, xhr) {
                 if (typeof (xhr) === 'undefined') {
