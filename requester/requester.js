@@ -14,7 +14,7 @@ angular.module('RESTer.requester', ['ngRoute'])
         });
 }])
 
-.controller('RequesterController', ["$scope","Request",
+.controller('RequesterController', ["$scope", "Request",
     function ($scope, Request) {
 
         $scope.uri = "http://jsonplaceholder.typicode.com/posts/1";
@@ -42,8 +42,8 @@ angular.module('RESTer.requester', ['ngRoute'])
                 return;
             }
 
-            var requestTime= Date.now();
-            var request = Request.execute($scope.uri, $scope.currentMethod,$scope.headers);
+            var requestTime = Date.now();
+            var request = Request.execute($scope.uri, $scope.currentMethod, $scope.headers);
 
             request.done(function (data, statusText, xhr) {
                 if (typeof (xhr) === 'undefined') {
@@ -79,5 +79,13 @@ angular.module('RESTer.requester', ['ngRoute'])
             $scope.statusCode = "";
             $scope.responseTime = "";
             $scope.currentMethod = $scope.methods[0];
+            if ($scope.isHeaderAreaExpanded) {
+                $scope.headers = [{
+                    name: "",
+                    value: ""
+            }];
+            } else {
+                $scope.headers = []
+            }
         };
 }]);
