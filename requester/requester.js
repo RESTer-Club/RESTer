@@ -14,69 +14,51 @@ angular.module('RESTer.requester', ['ngRoute'])
         });
 }])
 
-.controller('RequesterController', ["$scope","Request",
+.controller('RequesterController', ["$scope", "Request",
     function ($scope, Request) {
 
-        $scope.uri = "http://jsonplaceholder.typicode.com/posts/1";
-        $scope.statusText;
-        $scope.statusCode;
         $scope.methods = AVAILABLE_METHODS;
-        $scope.currentMethod = $scope.methods[0];
-        $scope.contentType;
-        $scope.response;
-        $scope.responseTime;
+
+        //Request
+        $scope.request = new RequestModel();
+        $scope.request.method = $scope.methods[0];
+
+        //Response
+        $scope.response = new ResponseModel();
 
         $scope.setMethod = function (methodType) {
             if (typeof (methodType) === 'undefined') {
                 return;
             }
 
-            $scope.currentMethod = methodType;
+            $scope.request.method = methodType;
         };
 
         $scope.send = function () {
-            if ($scope.uri.length == 0) {
-                $scope.response = "";
+            if ($scope.request.uri.length == 0) {
+                $scope.response.data = "";
                 console.warn("uri is not set");
                 return;
             }
 
-            var requestTime= Date.now();
-            var request = Request.execute($scope.uri, $scope.currentMethod);
+            var requestTime = Date.now();
+            var request = Request.execute($scope.request);
 
             request.done(function (data, statusText, xhr) {
-                if (typeof (xhr) === 'undefined') {
-                    return;
-                }
-                $scope.responseTime = (Date.now() - requestTime) + ' ms';
-
-                var contentType = xhr.getResponseHeader("content-type") || "";
-                $scope.contentType = contentType;
-                $scope.response = xhr.responseText;
-                $scope.statusCode = xhr.status || "";
-                $scope.statusText = $scope.statusCode + ": " + xhr.statusText || "";
+                var responseTime = (Date.now() - requestTime) + ' ms';
+                $scope.response.set(xhr, responseTime);
                 $scope.$apply();
             });
 
             request.fail(function (xhr, statusText) {
-                if (typeof (xhr) === 'undefined') {
-                    return;
-                }
-                $scope.responseTime = (Date.now() - requestTime) + 'ms';
-
-                $scope.response = "";
-                $scope.statusCode = xhr.status || "";
-                $scope.statusText = $scope.statusCode + ": " + xhr.statusText || "";
+                var responseTime = (Date.now() - requestTime) + 'ms';
+                $scope.response.set(xhr, responseTime);
                 $scope.$apply();
             });
         };
 
         $scope.reset = function () {
-            $scope.response = "";
-            $scope.uri = "";
-            $scope.statusText = "STATUS";
-            $scope.statusCode = "";
-            $scope.responseTime = "";
-            $scope.currentMethod = $scope.methods[0];
+            $scope.response.reset();
+            $scope.request.reset($scope.isHeaderAreaExpanded, $scope.methods[0]);
         };
 }]);
