@@ -3,7 +3,6 @@ var RequestModel = (function () {
     function RequestModel() {
         this._uri = "http://jsonplaceholder.typicode.com/posts/2";
         this._method;
-        this._contentType;
         this._headers = [];
     }
 
@@ -25,15 +24,6 @@ var RequestModel = (function () {
         }
     });
 
-    Object.defineProperty(RequestModel.prototype, "contentType", {
-        get: function () {
-            return this._contentType;
-        },
-        set: function (value) {
-            this._contentType = value;
-        }
-    });
-
     Object.defineProperty(RequestModel.prototype, "headers", {
         get: function () {
             return this._headers;
@@ -46,7 +36,6 @@ var RequestModel = (function () {
     RequestModel.prototype.reset = function (isHeaderAreaExpanded, defaultMethod) {
         this.uri = "";
         this.method = defaultMethod;
-        this.contentType = "";
         if (isHeaderAreaExpanded) {
             this.headers = [{
                 name: "",
