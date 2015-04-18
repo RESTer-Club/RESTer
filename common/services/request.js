@@ -10,7 +10,9 @@ app.factory('Request', function () {
                     var headers = request.headers;
                     for (var idx = 0; idx < headers.length; idx++) {
                         var header = headers[idx];
-                        xhr.setRequestHeader(header.name, header.value);
+                        if (header.name.length > 0 && header.value.length > 0) {
+                            xhr.setRequestHeader(header.name, header.value);
+                        }
                     }
                 }
             });
