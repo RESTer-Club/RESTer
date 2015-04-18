@@ -38,14 +38,15 @@ app.directive('headers', function () {
             },
 
             scope.deleteHeader = function (position) {
-                if (position > 0 || scope.request.headers.length > 1) {
-                    scope.request.headers.splice(position, 1);
-                } else if (position === 0) {
-                    var header = scope.request.headers[0];
-                    header.name = "";
-                    header.value = "";
+                if (scope.request.headers.length > 0) {
+                    if (position > 0 || scope.request.headers.length > 1) {
+                        scope.request.headers.splice(position, 1);
+                    } else if (position === 0) {
+                        var header = scope.request.headers[0];
+                        header.name = "";
+                        header.value = "";
+                    }
                 }
-
             }
         }
     };
