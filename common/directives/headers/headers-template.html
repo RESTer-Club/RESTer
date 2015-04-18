@@ -1,13 +1,13 @@
 <div>
     <button class="btn btn-default headers-button" type="button" data-toggle="collapse" data-target="#collapseContainer" aria-expanded="false" aria-controls="collapseContainer" ng-click="expandHeaders()">
-        Headers <span class="badge">{{ headers.length }}</span>
+        Headers <span class="badge">{{ request.headers.length }}</span>
     </button>
     <div class="collapse row" id="collapseContainer">
         <div class="well">
             <div class="col-md-offset-1 headers-area">
                 <form class="form-inline">
                     <div class="form-group">
-                        <div ng-repeat="(key, header) in headers">
+                        <div ng-repeat="(key, header) in request.headers">
                             <a><span class="glyphicon glyphicon-minus" aria-hidden="true" ng-click="deleteHeader(key)"></span></a>
                             <input type="text" class="form-control" placeholder="Header" value="{{ header.name }}" ng-model="header.name">
                             <input type="text" class="form-control" placeholder="Value" value="{{ header.value }}" ng-model="header.value">
