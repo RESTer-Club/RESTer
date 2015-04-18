@@ -119,8 +119,7 @@ body {
 }
 
 .status-area {
-    margin: 20px 10px 10px 0px;
-    padding-left: 0px;
+    margin: 0px 10px 10px 0px;
 }
 
 .headers-button {
@@ -139,10 +138,6 @@ body {
 .main-container {
     background-color: #ffffff;
     min-width: 1500px;
-}
-
-.status-container {
-    margin-bottom: 5px;
 }
 
 .time {

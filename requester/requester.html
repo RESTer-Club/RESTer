@@ -25,10 +25,11 @@
                 </ul>
             </div>
         </div>
-        <div class="status-area col-md-2">
+        <headers></headers>
+        <div class="status-area col-md-12">
             <status-area code="{{ response.statusCode }}"></status-area>
         </div>
-        <headers></headers>
+        
         <response-browser content-type="{{ response.contentType }}" response="{{ response.data }}"></response-browser>
     </div>
 </div>
