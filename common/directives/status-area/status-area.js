@@ -1,5 +1,7 @@
 'use strict';
 
+var STATUS_AREA = ".status-area"
+
 app.directive('statusArea', function () {
     return {
         restrict: 'AE',
@@ -8,6 +10,14 @@ app.directive('statusArea', function () {
         link: function (scope, elem, attrs) {
 
             attrs.$observe("code", function (value) {
+
+                //Show status area if there is response code but the response body is empty
+                if (value) {
+                    $(STATUS_AREA).removeClass('hide');
+                } else {
+                    $(STATUS_AREA).addClass('hide');
+                }
+
                 if (/^1/.test(value)) {
                     scope.statusState = 'info';
                 } else if (/^2/.test(value)) {

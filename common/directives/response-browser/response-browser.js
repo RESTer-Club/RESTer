@@ -3,7 +3,6 @@
 var CODE_MIRROR_TEXTAREA_ID = "codemirror";
 var CODE_MIRROR_CONTAINER = "#markdown-response";
 var JSON_VIEWER_CONTROL = "#json-response";
-var STATUS_AREA = ".status-area"
 
 app.directive('responseBrowser', function () {
     return {
@@ -67,20 +66,17 @@ app.directive('responseBrowser', function () {
                 //Hide CodeMirror and show json viewer
                 $(CODE_MIRROR_CONTAINER).addClass('hide');
                 $(JSON_VIEWER_CONTROL).removeClass('hide');
-                $(STATUS_AREA).removeClass('hide');
             };
 
             function prepareForHtmlResponse() {
                 //Show CodeMirror and hide json viewer
                 $(CODE_MIRROR_CONTAINER).removeClass('hide');
                 $(JSON_VIEWER_CONTROL).addClass('hide');
-                $(STATUS_AREA).removeClass('hide');
             };
 
             function hide() {
                 $(CODE_MIRROR_CONTAINER).addClass('hide');
                 $(JSON_VIEWER_CONTROL).addClass('hide');
-                $(STATUS_AREA).addClass('hide');
             };
 
             function initCodeMirror() {
