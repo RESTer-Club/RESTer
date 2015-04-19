@@ -1,6 +1,5 @@
 'use strict';
 
-var DEFAULT_STATUSTEXT = "STATUS";
 var AVAILABLE_METHODS = ['GET', 'POST', 'PUT', 'DELETE'];
 
 angular.module('RESTer.requester', ['ngRoute'])
@@ -14,7 +13,7 @@ angular.module('RESTer.requester', ['ngRoute'])
         });
 }])
 
-.controller('RequesterController', ["$scope", "Request",
+.controller('RequesterController', ['$scope', 'Request',
     function ($scope, Request) {
 
         $scope.methods = AVAILABLE_METHODS;
@@ -35,16 +34,16 @@ angular.module('RESTer.requester', ['ngRoute'])
         };
 
         $scope.send = function () {
-            if ($scope.request.uri.length == 0) {
+            if ($scope.request.uri.length === 0) {
                 $scope.response.reset();
-                console.warn("uri is not set");
+                console.warn('uri is not set');
                 return;
             }
 
             var requestTime = Date.now();
             var request = Request.execute($scope.request);
-            
-            if(typeof(request) === 'undefined'){
+
+            if (typeof (request) === 'undefined') {
                 return;
             }
 
@@ -54,7 +53,7 @@ angular.module('RESTer.requester', ['ngRoute'])
                 $scope.$apply();
             });
 
-            request.fail(function (xhr, statusText) {
+            request.fail(function (xhr) {
                 var responseTime = (Date.now() - requestTime) + 'ms';
                 $scope.response.set(xhr, responseTime);
                 $scope.$apply();

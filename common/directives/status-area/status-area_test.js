@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Unit testing status area', function () {
     var $compile,
         $scope,

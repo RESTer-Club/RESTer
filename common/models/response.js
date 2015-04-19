@@ -1,14 +1,16 @@
-var ResponseModel = (function () {
+'use strict';
+
+var ResponseModel = (function () { // jshint ignore:line
 
     function ResponseModel() {
-        this._statusText = "";
-        this._statusCode = "";
-        this._contentType = "";
-        this._responseTime = "";
-        this._data = "";
+        this._statusText = '';
+        this._statusCode = '';
+        this._contentType = '';
+        this._responseTime = '';
+        this._data = '';
     }
 
-    Object.defineProperty(ResponseModel.prototype, "statusText", {
+    Object.defineProperty(ResponseModel.prototype, 'statusText', {
         get: function () {
             return this._statusText;
         },
@@ -17,7 +19,7 @@ var ResponseModel = (function () {
         }
     });
 
-    Object.defineProperty(ResponseModel.prototype, "statusCode", {
+    Object.defineProperty(ResponseModel.prototype, 'statusCode', {
         get: function () {
             return this._statusCode;
         },
@@ -26,7 +28,7 @@ var ResponseModel = (function () {
         }
     });
 
-    Object.defineProperty(ResponseModel.prototype, "contentType", {
+    Object.defineProperty(ResponseModel.prototype, 'contentType', {
         get: function () {
             return this._contentType;
         },
@@ -35,7 +37,7 @@ var ResponseModel = (function () {
         }
     });
 
-    Object.defineProperty(ResponseModel.prototype, "responseTime", {
+    Object.defineProperty(ResponseModel.prototype, 'responseTime', {
         get: function () {
             return this._responseTime;
         },
@@ -44,7 +46,7 @@ var ResponseModel = (function () {
         }
     });
 
-    Object.defineProperty(ResponseModel.prototype, "data", {
+    Object.defineProperty(ResponseModel.prototype, 'data', {
         get: function () {
             return this._data;
         },
@@ -62,19 +64,19 @@ var ResponseModel = (function () {
             responseTime = '0';
         }
 
-        this.contentType = xhr.getResponseHeader("content-type") || "";
-        this.data = xhr.responseText || "";
-        this.statusCode = xhr.status || "";
-        this.statusText = this.statusCode + ": " + xhr.statusText || "";
+        this.contentType = xhr.getResponseHeader('content-type') || '';
+        this.data = xhr.responseText || '';
+        this.statusCode = xhr.status || '';
+        this.statusText = this.statusCode + ': ' + xhr.statusText || '';
         this.responseTime = responseTime;
     };
 
     ResponseModel.prototype.reset = function () {
-        this.contentType = "";
-        this.data = "";
-        this.statusCode = "";
-        this.statusText = "";
-        this.responseTime = "";
+        this.contentType = '';
+        this.data = '';
+        this.statusCode = '';
+        this.statusText = '';
+        this.responseTime = '';
     };
 
     return ResponseModel;

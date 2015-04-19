@@ -1,10 +1,12 @@
+'use strict';
+
 describe('Unit testing request service', function () {
 
     var $scope;
 
     beforeEach(module('RESTer'));
 
-    beforeEach(inject(function (_$rootScope_, _$compile_) {
+    beforeEach(inject(function (_$rootScope_) {
         $scope = _$rootScope_;
     }));
 

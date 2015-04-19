@@ -1,12 +1,14 @@
-var RequestModel = (function () {
+'use strict';
+
+var RequestModel = (function () { // jshint ignore:line
 
     function RequestModel() {
-        this._uri = "";
-        this._method = "";
+        this._uri = '';
+        this._method = '';
         this._headers = [];
     }
 
-    Object.defineProperty(RequestModel.prototype, "uri", {
+    Object.defineProperty(RequestModel.prototype, 'uri', {
         get: function () {
             return this._uri;
         },
@@ -15,7 +17,7 @@ var RequestModel = (function () {
         }
     });
 
-    Object.defineProperty(RequestModel.prototype, "method", {
+    Object.defineProperty(RequestModel.prototype, 'method', {
         get: function () {
             return this._method;
         },
@@ -24,7 +26,7 @@ var RequestModel = (function () {
         }
     });
 
-    Object.defineProperty(RequestModel.prototype, "headers", {
+    Object.defineProperty(RequestModel.prototype, 'headers', {
         get: function () {
             return this._headers;
         },
@@ -34,15 +36,15 @@ var RequestModel = (function () {
     });
 
     RequestModel.prototype.reset = function (isHeaderAreaExpanded, defaultMethod) {
-        this.uri = "";
-        this.method = defaultMethod || "GET";
+        this.uri = '';
+        this.method = defaultMethod || 'GET';
         if (isHeaderAreaExpanded) {
             this.headers = [{
-                name: "",
-                value: ""
+                name: '',
+                value: ''
             }];
         } else {
-            this.headers = []
+            this.headers = [];
         }
     };
 

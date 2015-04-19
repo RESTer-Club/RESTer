@@ -11,17 +11,16 @@ app.directive('responseBrowser', function () {
         templateUrl: 'common/directives/response-browser/response-browser-template.html',
         link: function (scope, elem, attrs) {
             var _contentType,
-                _value,
                 _codeMirror;
 
             initCodeMirror();
 
             attrs.$observe("contentType", function (value) {
-                if (typeof (value) == 'undefined') {
+                if (typeof (value) === 'undefined') {
                     return;
                 }
 
-                if (value.length == 0) {
+                if (value.length === 0) {
                     return;
                 }
 
@@ -38,11 +37,11 @@ app.directive('responseBrowser', function () {
             });
 
             attrs.$observe("response", function (value) {
-                if (typeof (value) == 'undefined') {
+                if (typeof (value) === 'undefined') {
                     return;
                 }
 
-                if (value.length == 0) {
+                if (value.length === 0) {
                     hide();
                     return;
                 }
@@ -66,18 +65,18 @@ app.directive('responseBrowser', function () {
                 //Hide CodeMirror and show json viewer
                 $(CODE_MIRROR_CONTAINER).addClass('hide');
                 $(JSON_VIEWER_CONTROL).removeClass('hide');
-            };
+            }
 
             function prepareForHtmlResponse() {
                 //Show CodeMirror and hide json viewer
                 $(CODE_MIRROR_CONTAINER).removeClass('hide');
                 $(JSON_VIEWER_CONTROL).addClass('hide');
-            };
+            }
 
             function hide() {
                 $(CODE_MIRROR_CONTAINER).addClass('hide');
                 $(JSON_VIEWER_CONTROL).addClass('hide');
-            };
+            }
 
             function initCodeMirror() {
                 _codeMirror = CodeMirror.fromTextArea(document.getElementById(CODE_MIRROR_TEXTAREA_ID), {
@@ -90,7 +89,7 @@ app.directive('responseBrowser', function () {
                     matchBrackets: true,
                     autoCloseBrackets: true
                 });
-            };
+            }
 
             //hack for correct width of codemirror editor when the content has very long lines
             $(window).resize(function () {

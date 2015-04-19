@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Unit testing request model', function () {
 
     beforeEach(module('RESTer'));

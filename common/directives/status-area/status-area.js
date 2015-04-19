@@ -1,6 +1,6 @@
 'use strict';
 
-var STATUS_AREA = ".status-area"
+var STATUS_AREA = '.status-area';
 
 app.directive('statusArea', function () {
     return {
@@ -9,7 +9,7 @@ app.directive('statusArea', function () {
         templateUrl: 'common/directives/status-area/status-area-template.html',
         link: function (scope, elem, attrs) {
 
-            attrs.$observe("code", function (value) {
+            attrs.$observe('code', function (value) {
 
                 //Show status area if there is response code but the response body is empty
                 //TODO: Visibility change is not covered by unit tests

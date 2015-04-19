@@ -1,3 +1,5 @@
+'use strict';
+
 app.factory('Request', function () {
 
     return {
@@ -30,5 +32,5 @@ app.factory('Request', function () {
                 }
             });
         }
-    }
+    };
 });

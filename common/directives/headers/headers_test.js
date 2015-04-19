@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Unit testing headers', function () {
     var $compile,
         $scope,
