@@ -36,13 +36,17 @@ angular.module('RESTer.requester', ['ngRoute'])
 
         $scope.send = function () {
             if ($scope.request.uri.length == 0) {
-                $scope.response.data = "";
+                $scope.response.reset();
                 console.warn("uri is not set");
                 return;
             }
 
             var requestTime = Date.now();
             var request = Request.execute($scope.request);
+            
+            if(typeof(request) === 'undefined'){
+                return;
+            }
 
             request.done(function (data, statusText, xhr) {
                 var responseTime = (Date.now() - requestTime) + ' ms';
