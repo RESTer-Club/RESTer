@@ -1,4 +1,6 @@
 <div>
-    <span class="label label-{{ statusState || 'default' }} status">{{ response.statusText || 'STATUS' }}</span>
-    <span class="label label-default time">{{ response.responseTime || 'TIME'}}</span>
+    <div class="status-area col-md-12">
+        <span class="label label-{{ statusState || 'default' }} status">{{ response.statusText || 'STATUS' }}</span>
+        <span class="label label-default time">{{ response.responseTime || 'TIME'}}</span>
+    </div>
 </div>

@@ -12,6 +12,7 @@ app.directive('statusArea', function () {
             attrs.$observe("code", function (value) {
 
                 //Show status area if there is response code but the response body is empty
+                //TODO: Visibility change is not covered by unit tests
                 if (value) {
                     $(STATUS_AREA).removeClass('hide');
                 } else {

@@ -26,10 +26,7 @@
             </div>
         </div>
         <headers></headers>
-        <div class="status-area col-md-12">
-            <status-area code="{{ response.statusCode }}"></status-area>
-        </div>
-        
+        <status-area code="{{ response.statusCode }}"></status-area>
         <response-browser content-type="{{ response.contentType }}" response="{{ response.data }}"></response-browser>
     </div>
 </div>
