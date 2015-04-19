@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RESTer" class="no-js" ng-csp>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/addon/fold/foldgutter.css">
+    <link rel="stylesheet" href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">
+                    <img src="images/logo.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar" id="main-navbar">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Request <span class="sr-only">(current)</span></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-view></div>
+    <!--jQuery-->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
+    <!--Bootstrap-->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <!--AngularJS-->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <!--CodeMirror-->
+    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
+    <!--CodeMirror modes-->
+    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../node_modules/codemirror/mode/markdown/markdown.js"></script>
+    <!--CodeMirror addons-->
+    <script src="../node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="../node_modules/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="../node_modules/codemirror/addon/comment/comment.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/foldcode.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/xml-fold.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/markdown-fold.js"></script>
+    <script src="../node_modules/codemirror/addon/fold/comment-fold.js"></script>
+    <!-- App -->
+    <script src="app.js"></script>
+    <!-- Services -->
+    <script src="common/services/request.js"></script>
+    <!-- Directives -->
+    <script src="common/directives/response-browser/response-browser.js"></script>
+    <script src="common/directives/status-area/status-area.js"></script>
+    <script src="common/directives/headers/headers.js"></script>
+    <!--Controllers-->
+    <script src="requester/requester.js"></script>
+    <!--Models-->
+    <script src="common/models/request.js"></script>
+    <script src="common/models/response.js"></script>
+</body>
+
+</html>

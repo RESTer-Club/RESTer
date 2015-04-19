@@ -25,11 +25,12 @@
         "karma-jasmine-html-reporter": "0.1.8",
         "karma-ng-html2js-preprocessor": "0.1.2",
         "karma": "0.12.31",
-        "karma-cli": "0.0.4"
+        "karma-cli": "0.0.4",
+        "karma-coverage": "0.3.1"
     },
     "scripts": {
         "test": "./node_modules/.bin/karma start --browsers Firefox --single-run",
-        "dev-test": "./node_modules/.bin/karma start --browsers Chrome karma.conf.js"
+        "dev-test": "./node_modules/.bin/karma start karma.conf.js"
     }
 
 }
