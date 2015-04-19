@@ -2,7 +2,8 @@
 
 describe('Unit testing request service', function () {
 
-    var $scope;
+    var $scope,
+        Request;
 
     beforeEach(module('RESTer'));
 
