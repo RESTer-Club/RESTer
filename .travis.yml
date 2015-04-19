@@ -8,4 +8,4 @@ before_script:
   - sleep 1 # give server time to start
 
 after_script:
-  - codeclimate < lcov.info
+  - codeclimate < coverage/report-lcov/lcov.info

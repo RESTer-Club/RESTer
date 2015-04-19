@@ -40,8 +40,11 @@ module.exports = function (config) {
             '*/**/*.js': ['coverage']
         },
         coverageReporter: {
-            type: 'lcov',
-            dir: '../coverage/'
+            dir: '../coverage/',
+            reporters: [{
+                type: 'lcov',
+                subdir: 'report-lcov'
+                }]
         }
 
     });
