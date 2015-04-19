@@ -1,8 +1,8 @@
 var RequestModel = (function () {
 
     function RequestModel() {
-        this._uri = "http://jsonplaceholder.typicode.com/posts/2";
-        this._method;
+        this._uri = "";
+        this._method = "";
         this._headers = [];
     }
 
@@ -35,7 +35,7 @@ var RequestModel = (function () {
 
     RequestModel.prototype.reset = function (isHeaderAreaExpanded, defaultMethod) {
         this.uri = "";
-        this.method = defaultMethod;
+        this.method = defaultMethod || "GET";
         if (isHeaderAreaExpanded) {
             this.headers = [{
                 name: "",

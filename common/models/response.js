@@ -1,11 +1,11 @@
 var ResponseModel = (function () {
 
     function ResponseModel() {
-        this._statusText;
-        this._statusCode;
-        this._contentType;
-        this._responseTime;
-        this._data;
+        this._statusText = "";
+        this._statusCode = "";
+        this._contentType = "";
+        this._responseTime = "";
+        this._data = "";
     }
 
     Object.defineProperty(ResponseModel.prototype, "statusText", {
@@ -59,7 +59,7 @@ var ResponseModel = (function () {
         }
 
         if (typeof (responseTime) === 'undefined') {
-            responseTime = 0;
+            responseTime = '0';
         }
 
         this.contentType = xhr.getResponseHeader("content-type") || "";
