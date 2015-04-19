@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "0.10"
+  
+addons:
+  code_climate:
+    repo_token: 1619445daa3a0e93f72cba3264c7e593ed9871a44294d428ed36c347beeb479e
 
 before_script:
   - export DISPLAY=:99.0
