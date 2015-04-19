@@ -3,7 +3,7 @@
 module.exports = function (config) {
     config.set({
 
-        basePath: 'app',
+        basePath: './app',
 
         files: [
       '../node_modules/angular/angular.js',
@@ -37,7 +37,7 @@ module.exports = function (config) {
             ],
         preprocessors: {
             'common/directives/**/*.html': ['ng-html2js'],
-            '**/*.js': ['coverage']
+            '*/**/*.js': ['coverage']
         },
         coverageReporter: {
             type: 'lcov',
