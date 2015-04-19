@@ -3,7 +3,7 @@
 module.exports = function (config) {
     config.set({
 
-        basePath: './app',
+        basePath: 'app/',
 
         files: [
       '../node_modules/angular/angular.js',
@@ -40,7 +40,7 @@ module.exports = function (config) {
             '*/**/*.js': ['coverage']
         },
         coverageReporter: {
-            dir: '../coverage/',
+            dir: 'coverage/',
             reporters: [{
                 type: 'lcov',
                 subdir: 'report-lcov'
