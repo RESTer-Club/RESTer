@@ -4,4 +4,4 @@
 <a href='https://gemnasium.com/RESTer-Club/RESTer' target="blank"><img src="https://gemnasium.com/RESTer-Club/RESTer.svg" alt="Dependency Status" /></a>
 
 ###Overview
-Troubleshoot REST services throughout the development life cycle, test them and observe for regressions. RESTer main goal is to facilitate this.
+Troubleshoot REST services throughout the development life cycle, test them and observe for regressions. <b>RESTer</b> main goal is to facilitate this.
