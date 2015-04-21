@@ -1,4 +1,5 @@
-[![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/RESTer-Club/Room)
+<a href='https://gitter.im/RESTer-Club/Room' target="blank"><img src="https://badges.gitter.im/gitterHQ/services.png"/></a>
+
 #<img src="https://raw.githubusercontent.com/RESTer-Club/RESTer/master/app/images/banner.png"/>
 <a href="https://travis-ci.org/RESTer-Club/RESTer" target="blank"><img src="https://travis-ci.org/RESTer-Club/RESTer.svg?branch=master" /></a>
 <a href="https://codeclimate.com/github/RESTer-Club/RESTer" target="blank"><img src="https://codeclimate.com/github/RESTer-Club/RESTer/badges/gpa.svg" /></a>
