@@ -7,3 +7,6 @@
 
 ###Overview
 Troubleshoot REST services throughout the development life cycle, test them and observe for regressions. <b>RESTer</b> main goal is to facilitate this.
+
+###License
+<a href="https://github.com/RESTer-Club/RESTer/blob/master/LICENSE.md">MIT License</a>
