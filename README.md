@@ -9,11 +9,12 @@
 Troubleshoot REST services throughout the development life cycle, test them and observe for regressions. <b>RESTer</b> main goal is to facilitate this.
 
 ### Setup Development Environment
-####  Prerequisites
+#### Prerequisites
 - [Google Chrome][1]
 - [NodeJS][2]
 - [Chrome Apps & Extensions Developer Tool][3]
-####  Installation
+
+#### Installation
 - Clone [GitHub repo][4]
 ```
 $ git clone https://github.com/RESTer-Club/RESTer.git
