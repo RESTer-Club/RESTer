@@ -25,17 +25,18 @@ RESTer$ npm install
 ```
 - Launch the Chrome app 
 	- Run Chrome Apps & Extensions Developer Tool
-	- Select Apps tab
+	- Select "Apps" tab
 	- Click "Load unpacked..."
 	- Select **RESTer** folder
 
 > NOTE: There are several ways to launch Chrome app. You can read more about that in [Google Developers documentation for Chrome App][5].
 
 ### License
-<a href="https://github.com/RESTer-Club/RESTer/blob/master/LICENSE.md">MIT License</a>
+[MIT License][6]
 
 [1]: https://www.google.com/chrome/browser/desktop/
 [2]: https://nodejs.org/
 [3]: https://chrome.google.com/webstore/detail/chrome-apps-extensions-de/ohmmkhmmmpcnpikjeljgnaoabkaalbgc
 [4]: https://github.com/RESTer-Club/RESTer
 [5]: https://developer.chrome.com/apps/first_app#five
+[6]: https://github.com/RESTer-Club/RESTer/blob/master/LICENSE.md
