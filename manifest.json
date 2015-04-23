@@ -1,5 +1,5 @@
 {
-    "name": "service-tester",
+    "name": "RESTer",
     "version": "0.2.0",
     "icons": {
         "16": "/app/images/icons/icon_16.png",
