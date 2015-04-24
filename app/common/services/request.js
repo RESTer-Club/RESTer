@@ -15,10 +15,17 @@ app.factory('Request', function () {
             ) {
                 return;
             }
+            
+            var verifiedReqBody = request.body || '';
+            
+            if(!request.method.hasBody){
+                verifiedReqBody = '';
+            }
 
             return $.ajax({
-                method: request.method,
+                method: request.method.name,
                 url: request.uri,
+                data: verifiedReqBody,
                 beforeSend: function (xhr) {
                     var headers = request.headers;
                     for (var idx = 0; idx < headers.length; idx++) {
