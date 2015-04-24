@@ -162,6 +162,10 @@ pre {
     padding-top: 10px;
 }
 
+.well{
+    margin-bottom: 3px;
+}
+
 .CodeMirror {
     height: auto;
 }

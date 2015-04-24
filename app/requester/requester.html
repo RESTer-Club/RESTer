@@ -31,8 +31,10 @@
                 Body <span class="badge"></span>
             </button>
         </div>
-        <request-body></request-body>
-        <headers></headers>
+        <div class="col-md-12">
+            <request-body></request-body>
+            <headers></headers>
+        </div>
         <status-area code="{{ response.statusCode }}"></status-area>
         <response-browser content-type="{{ response.contentType }}" response="{{ response.data }}"></response-browser>
     </div>

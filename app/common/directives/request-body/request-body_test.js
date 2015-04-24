@@ -18,7 +18,7 @@ describe('Unit testing request mody', function () {
     }));
 
     it('Replaces the element with the appropriate content', function () {
-        expect(element.html()).toContain('Headers');
+        expect(element.html()).toContain('collapseBodyContainer');
     });
 
     //    it('addNewHeader when there are no headers', function () {
