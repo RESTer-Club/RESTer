@@ -112,6 +112,7 @@ body {
 .action-area {
     margin: 15px 0px 10px 0px;
     min-width: 130px;
+    padding-left: 0px;
 }
 
 .action-btn {
@@ -123,7 +124,7 @@ body {
 }
 
 .headers-button {
-    margin: 15px 0px 10px 0px;
+    margin-right: 5px;
 }
 
 .headers-area {
@@ -138,6 +139,10 @@ body {
 .main-container {
     background-color: #ffffff;
     min-width: 1500px;
+}
+
+.send-button-area {
+    min-width: 150px;
 }
 
 .time {

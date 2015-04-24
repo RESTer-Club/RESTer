@@ -13,8 +13,8 @@
                 <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="request.uri">
             </div>
         </div>
-        <div class="action-area col-md-1">
-            <div class="btn-group">
+        <div class="action-area col-md-12">
+            <div class="btn-group col-md-1 send-button-area">
                 <button type="button" class="btn btn-info action-btn" ng-click="send()">Send</button>
                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <span class="caret"></span>
@@ -24,7 +24,14 @@
                     </li>
                 </ul>
             </div>
+            <button class="btn btn-default headers-button col-md-1" type="button" data-toggle="collapse" data-target="#collapseHeadersContainer" aria-expanded="false" aria-controls="collapseHeadersContainer" ng-click="expandHeaders()">
+                Headers <span class="badge">{{ request.headers.length }}</span>
+            </button>
+            <button class="btn btn-default headers-button col-md-1" type="button" data-toggle="collapse" data-target="#collapseBodyContainer" aria-expanded="false" aria-controls="collapseBodyContainer">
+                Body <span class="badge"></span>
+            </button>
         </div>
+        <request-body></request-body>
         <headers></headers>
         <status-area code="{{ response.statusCode }}"></status-area>
         <response-browser content-type="{{ response.contentType }}" response="{{ response.data }}"></response-browser>
