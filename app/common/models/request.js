@@ -3,8 +3,9 @@
 var RequestModel = (function () { // jshint ignore:line
 
     function RequestModel() {
-        this._uri = '';
+        this._uri = 'https://testtap.telerik.com/api/internal/system/features';
         this._method = '';
+        this._body = '';
         this._headers = [];
     }
 
@@ -26,6 +27,15 @@ var RequestModel = (function () { // jshint ignore:line
         }
     });
 
+    Object.defineProperty(RequestModel.prototype, 'body', {
+        get: function () {
+            return this._body;
+        },
+        set: function (value) {
+            this._body = value;
+        }
+    });
+
     Object.defineProperty(RequestModel.prototype, 'headers', {
         get: function () {
             return this._headers;
@@ -37,7 +47,8 @@ var RequestModel = (function () { // jshint ignore:line
 
     RequestModel.prototype.reset = function (isHeaderAreaExpanded, defaultMethod) {
         this.uri = '';
-        this.method = defaultMethod || 'GET';
+        this.method = defaultMethod || AVAILABLE_METHODS[0];
+        this.body = '';
         if (isHeaderAreaExpanded) {
             this.headers = [{
                 name: '',
