@@ -1,41 +1,43 @@
-<div class="col-md-offset-1 main sidebar main-container container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="input-group">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle action-type-btn" data-toggle="dropdown" aria-expanded="false">{{ request.method.name }}
+<div>
+    <div class="col-md-offset-1 main main-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle action-type-btn" data-toggle="dropdown" aria-expanded="false">{{ request.method.name }}
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="method in methods" ng-click="setMethod(method)"><a href="">{{ method.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="request.uri">
+                </div>
+            </div>
+            <div class="action-area col-md-12">
+                <div class="btn-group col-md-1 send-button-area">
+                    <button type="button" class="btn btn-info action-btn" ng-click="send()">Send</button>
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li ng-repeat="method in methods" ng-click="setMethod(method)"><a href="">{{ method.name }}</a>
+                        <li><a href="" ng-click="reset()"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Reset</a>
                         </li>
                     </ul>
                 </div>
-                <input type="text" placeholder="Enter request URL here" class="form-control" aria-label="..." ng-model="request.uri">
-            </div>
-        </div>
-        <div class="action-area col-md-12">
-            <div class="btn-group col-md-1 send-button-area">
-                <button type="button" class="btn btn-info action-btn" ng-click="send()">Send</button>
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="caret"></span>
+                <button class="btn btn-default headers-button col-md-1" type="button" data-toggle="collapse" data-target="#collapseHeadersContainer" aria-expanded="false" aria-controls="collapseHeadersContainer" ng-click="expandHeaders()">
+                    Headers <span class="badge">{{ request.headers.length }}</span>
                 </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="" ng-click="reset()"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Reset</a>
-                    </li>
-                </ul>
+                <button class="btn btn-default headers-button col-md-1" type="button" data-toggle="collapse" data-target="#collapseBodyContainer" aria-expanded="false" aria-controls="collapseBodyContainer" ng-disabled="!request.method.hasBody" ng-click="refreshBodyEditor()">
+                    Body <span class="badge"></span>
+                </button>
             </div>
-            <button class="btn btn-default headers-button col-md-1" type="button" data-toggle="collapse" data-target="#collapseHeadersContainer" aria-expanded="false" aria-controls="collapseHeadersContainer" ng-click="expandHeaders()">
-                Headers <span class="badge">{{ request.headers.length }}</span>
-            </button>
-            <button class="btn btn-default headers-button col-md-1" type="button" data-toggle="collapse" data-target="#collapseBodyContainer" aria-expanded="false" aria-controls="collapseBodyContainer" ng-disabled="!request.method.hasBody" ng-click="refreshBodyEditor()">
-                Body <span class="badge"></span>
-            </button>
+            <div class="col-md-12">
+                <request-body></request-body>
+                <headers></headers>
+            </div>
+            <status-area code="{{ response.statusCode }}"></status-area>
+            <response-browser content-type="{{ response.contentType }}" response="{{ response.data }}"></response-browser>
         </div>
-        <div class="col-md-12">
-            <request-body></request-body>
-            <headers></headers>
-        </div>
-        <status-area code="{{ response.statusCode }}"></status-area>
-        <response-browser content-type="{{ response.contentType }}" response="{{ response.data }}"></response-browser>
     </div>
 </div>

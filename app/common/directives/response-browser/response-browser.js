@@ -82,7 +82,6 @@ app.directive('responseBrowser', function () {
                 _codeMirror = CodeMirror.fromTextArea(document.getElementById(CODE_MIRROR_TEXTAREA_ID), {
                     mode: "xml",
                     lineWrapping: true,
-                    viewportMargin: Infinity,
                     lineNumbers: true,
                     foldGutter: true,
                     gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
@@ -93,14 +92,12 @@ app.directive('responseBrowser', function () {
 
             //hack for correct width of codemirror editor when the content has very long lines
             $(window).resize(function () {
-                var correction = $("#main-navbar").width();
-                scope.windowWidth = window.innerWidth - correction - 40;
+                $('#markdown-response > .CodeMirror').height(window.innerHeight - 150);
                 scope.$apply();
             });
 
             $(document).ready(function () {
-                var correction = $("#main-navbar").width();
-                scope.windowWidth = window.innerWidth - correction - 40;
+                $('#markdown-response > .CodeMirror').height(window.innerHeight - 150);
             });
         }
     };
