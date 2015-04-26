@@ -54,7 +54,8 @@ app.directive('responseBrowser', function () {
                 } else if (_contentType === 'json') {
 
                     prepareForJsonResponse();
-                    $(JSON_VIEWER_CONTROL).jsonViewer(JSON.parse(value));
+                    var securedValue = value.replace(/</g, "&lt;").replace(/>/g, "&gt;");;
+                    $(JSON_VIEWER_CONTROL).jsonViewer(jQuery.parseJSON(securedValue));
 
                 } else {
                     console.error("mode is not supported");
