@@ -46,8 +46,6 @@ pre {
     -webkit-user-select: text;
     padding: 0px 15px;
     background-color: transparent;
-    border: none;
-    padding-top: 10px;
 }
 
 .well {
@@ -57,6 +55,11 @@ pre {
 .CodeMirror {
     height: 100px;
     border: 1px solid #E7E7E7;
+}
+
+#json-response {
+    border: 1px solid #E7E7E7;
+    border-radius: 0px !important;
 }
 
 body,

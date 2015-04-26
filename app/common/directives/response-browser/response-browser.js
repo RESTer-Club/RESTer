@@ -94,11 +94,13 @@ app.directive('responseBrowser', function () {
             //hack for correct width of codemirror editor when the content has very long lines
             $(window).resize(function () {
                 $('#markdown-response > .CodeMirror').height(window.innerHeight - 150);
+                $('#json-response').height(window.innerHeight - 150);
                 scope.$apply();
             });
 
             $(document).ready(function () {
                 $('#markdown-response > .CodeMirror').height(window.innerHeight - 150);
+                $('#json-response').height(window.innerHeight - 150);
             });
         }
     };
