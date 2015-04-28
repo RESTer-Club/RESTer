@@ -8,7 +8,7 @@
     },
 
     "description": "simple approach for service testing",
-    "permissions": ["http://*/*/", "https://*/*/", "storage"],
+    "permissions": ["http://*/*/", "https://*/*/", "storage", "webview"],
     "app": {
         "background": {
             "scripts": [

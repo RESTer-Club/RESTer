@@ -27,8 +27,6 @@ app.directive('headers', function () {
                         }
                     }
 
-                    scope.refreshResponseContainerDimentions();
-
                     scope.isHeaderAreaExpanded = !scope.isHeaderAreaExpanded;
                 },
 
@@ -37,7 +35,6 @@ app.directive('headers', function () {
                         name: "",
                         value: ""
                     });
-                    scope.refreshResponseContainerDimentions();
                 },
 
                 scope.deleteHeader = function (position) {
@@ -51,7 +48,6 @@ app.directive('headers', function () {
                         }
                     }
 
-                    scope.refreshResponseContainerDimentions();
                 }; // jshint ignore:line
         }
     };
