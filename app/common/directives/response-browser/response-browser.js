@@ -92,7 +92,7 @@ app.directive('responseBrowser', function () {
             }
 
             scope.refreshResponseContainerDimentions = function () {
-                $('#markdown-response > .CodeMirror').height(window.innerHeight - 150 - $('#collapseHeadersContainer').height());
+                $('#markdown-response > .CodeMirror').height(window.innerHeight - 150 - $('#attributes-container').height());
                 $('#json-response').height(window.innerHeight - 150);
             }
 
