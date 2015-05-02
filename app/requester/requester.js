@@ -72,6 +72,7 @@ angular.module('RESTer.requester', ['ngRoute'])
             request.done(function (data, statusText, xhr) {
                 var responseTime = (Date.now() - requestTime) + ' ms';
                 $scope.response.set(xhr, responseTime);
+                $scope.refreshResponseContainerDimentions();
                 $scope.$apply();
             });
 

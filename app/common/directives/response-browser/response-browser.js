@@ -93,13 +93,13 @@ app.directive('responseBrowser', function () {
 
             scope.refreshResponseContainerDimentions = function () {
                 $('#markdown-response > .CodeMirror').height(window.innerHeight - 150 - $('#attributes-container').height());
-                $('#json-response').height(window.innerHeight - 150);
+                $('#json-response').height(window.innerHeight - 150 - $('#attributes-container').height());
             }
 
             //hack for correct width of codemirror editor when the content has very long lines
             $(window).resize(function () {
                 scope.refreshResponseContainerDimentions();
-                scope.$apply();
+                scope.$apply;
             });
 
             $(document).ready(function () {
