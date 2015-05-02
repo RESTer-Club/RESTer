@@ -1,86 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="RESTer" class="no-js" ng-csp>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
-    <link rel="stylesheet" href="../node_modules/codemirror/addon/fold/foldgutter.css">
-    <link rel="stylesheet" href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css">
-    <link rel="stylesheet" href="app.css">
-</head>
-
-<body>
-    <nav class="navbar navbar-default sidebar" role="navigation">
-        <div class="container-fluid" id="main-navbar">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-alignment" id="bs-sidebar-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="">Troubleshoot </span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a>
+    
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+        <link rel="stylesheet" href="../node_modules/codemirror/addon/fold/foldgutter.css">
+        <link rel="stylesheet" href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css">
+        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="sidebar/sidebar.css">
+    </head>
+    
+    <body>
+        <div id="wrapper" class="active">
+            <!-- Sidebar -->
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul id="sidebar_menu" class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a id="menu-toggle" href="#">RESTer<span id="main_icon" class="glyphicon glyphicon-menu-hamburger"></span></a>
                     </li>
+                </ul>
+                <ul class="sidebar-nav" id="sidebar">
                     <li>
-                        <a href="">History </span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a>
-                    </li>
-                    <li>
-                        <a href="">Test<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
-                    </li>
-                    <li>
-                        <a href="">Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a>
+                        <a href="">Troubleshoot<span class="sub_icon glyphicon glyphicon-send"></span></a>
                     </li>
                 </ul>
             </div>
+            <!-- Page content -->
+            <div id="page-content-wrapper">
+                <!-- Keep all page content within the page-content inset div! -->
+                <div class="page-content inset">
+                    <div class="row">
+                        <div ng-view></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-    <div ng-view></div>
-    <!--jQuery-->
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
-    <!--Bootstrap-->
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <!--AngularJS-->
-    <script src="../node_modules/angular/angular.js"></script>
-    <script src="../node_modules/angular-route/angular-route.js"></script>
-    <!--PouchDB-->
-    <script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
-    <!--CodeMirror-->
-    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
-    <!--CodeMirror modes-->
-    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
-    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
-    <script src="../node_modules/codemirror/mode/markdown/markdown.js"></script>
-    <!--CodeMirror addons-->
-    <script src="../node_modules/codemirror/addon/edit/matchbrackets.js"></script>
-    <script src="../node_modules/codemirror/addon/comment/continuecomment.js"></script>
-    <script src="../node_modules/codemirror/addon/comment/comment.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/foldcode.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/foldgutter.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/brace-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/xml-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/markdown-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/fold/comment-fold.js"></script>
-    <script src="../node_modules/codemirror/addon/edit/closebrackets.js"></script>
-    <!-- App -->
-    <script src="app.js"></script>
-    <!-- Services -->
-    <script src="common/services/request.js"></script>
-    <!-- Directives -->
-    <script src="common/directives/response-browser/response-browser.js"></script>
-    <script src="common/directives/status-area/status-area.js"></script>
-    <script src="common/directives/headers/headers.js"></script>
-    <script src="common/directives/request-body/request-body.js"></script>
-    <!--Controllers-->
-    <script src="requester/requester.js"></script>
-    <!--Models-->
-    <script src="common/models/request.js"></script>
-    <script src="common/models/response.js"></script>
-</body>
+        <!--jQuery-->
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
+        <!--Bootstrap-->
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <!--AngularJS-->
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-route/angular-route.js"></script>
+        <!--PouchDB-->
+        <script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
+        <!-- Sidebar-->
+        <script src="sidebar/sidebar.js"></script>
+        <!--CodeMirror-->
+        <script src="../node_modules/codemirror/lib/codemirror.js"></script>
+        <!--CodeMirror modes-->
+        <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+        <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+        <script src="../node_modules/codemirror/mode/markdown/markdown.js"></script>
+        <!--CodeMirror addons-->
+        <script src="../node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+        <script src="../node_modules/codemirror/addon/comment/continuecomment.js"></script>
+        <script src="../node_modules/codemirror/addon/comment/comment.js"></script>
+        <script src="../node_modules/codemirror/addon/fold/foldcode.js"></script>
+        <script src="../node_modules/codemirror/addon/fold/foldgutter.js"></script>
+        <script src="../node_modules/codemirror/addon/fold/brace-fold.js"></script>
+        <script src="../node_modules/codemirror/addon/fold/xml-fold.js"></script>
+        <script src="../node_modules/codemirror/addon/fold/markdown-fold.js"></script>
+        <script src="../node_modules/codemirror/addon/fold/comment-fold.js"></script>
+        <script src="../node_modules/codemirror/addon/edit/closebrackets.js"></script>
+        <!-- App -->
+        <script src="app.js"></script>
+        <!-- Services -->
+        <script src="common/services/request.js"></script>
+        <!-- Directives -->
+        <script src="common/directives/response-browser/response-browser.js"></script>
+        <script src="common/directives/status-area/status-area.js"></script>
+        <script src="common/directives/headers/headers.js"></script>
+        <script src="common/directives/request-body/request-body.js"></script>
+        <!--Controllers-->
+        <script src="requester/requester.js"></script>
+        <!--Models-->
+        <script src="common/models/request.js"></script>
+        <script src="common/models/response.js"></script>
+    </body>
 
 </html>
