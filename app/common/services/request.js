@@ -3,6 +3,7 @@
 app.factory('Request', function () {
 
     return {
+
         execute: function (request) {
 
             if (typeof (request) === 'undefined') {
@@ -15,10 +16,10 @@ app.factory('Request', function () {
             ) {
                 return;
             }
-            
+
             var verifiedReqBody = request.body || '';
-            
-            if(!request.method.hasBody){
+
+            if (!request.method.hasBody) {
                 verifiedReqBody = '';
             }
 

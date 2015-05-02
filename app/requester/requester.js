@@ -1,10 +1,23 @@
+/// <reference path="../../typings/angularjs/angular.d.ts"/>
 'use strict';
 
 var AVAILABLE_METHODS = [
-    { name:'GET', hasBody: false}, 
-    { name:'POST', hasBody: true}, 
-    { name:'PUT', hasBody: true}, 
-    { name:'DELETE', hasBody: true}
+    {
+        name: 'GET',
+        hasBody: false
+    },
+    {
+        name: 'POST',
+        hasBody: true
+    },
+    {
+        name: 'PUT',
+        hasBody: true
+    },
+    {
+        name: 'DELETE',
+        hasBody: true
+    }
 ];
 
 angular.module('RESTer.requester', ['ngRoute'])
@@ -34,8 +47,8 @@ angular.module('RESTer.requester', ['ngRoute'])
             if (typeof (methodType) === 'undefined') {
                 return;
             }
-            
-            if(!methodType.hasBody){
+
+            if (!methodType.hasBody) {
                 $('#collapseBodyContainer').removeClass('in');
             }
 
@@ -59,6 +72,7 @@ angular.module('RESTer.requester', ['ngRoute'])
             request.done(function (data, statusText, xhr) {
                 var responseTime = (Date.now() - requestTime) + ' ms';
                 $scope.response.set(xhr, responseTime);
+                $scope.refreshResponseContainerDimentions();
                 $scope.$apply();
             });
 
@@ -73,7 +87,7 @@ angular.module('RESTer.requester', ['ngRoute'])
             $scope.response.reset();
             $scope.request.reset($scope.isHeaderAreaExpanded, $scope.methods[0]);
             $scope.resetBodyEditor();
-            
+
             //call to hide the body area after clearing the value
             $scope.setMethod($scope.methods[0]);
         };

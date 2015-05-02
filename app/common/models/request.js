@@ -3,7 +3,7 @@
 var RequestModel = (function () { // jshint ignore:line
 
     function RequestModel() {
-        this._uri = 'https://testtap.telerik.com/api/internal/system/features';
+        this._uri = 'https://abv.bg';
         this._method = '';
         this._body = '';
         this._headers = [];

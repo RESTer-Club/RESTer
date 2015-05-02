@@ -54,7 +54,8 @@ app.directive('responseBrowser', function () {
                 } else if (_contentType === 'json') {
 
                     prepareForJsonResponse();
-                    $(JSON_VIEWER_CONTROL).jsonViewer(JSON.parse(value));
+                    var securedValue = value.replace(/</g, "&lt;").replace(/>/g, "&gt;");;
+                    $(JSON_VIEWER_CONTROL).jsonViewer(jQuery.parseJSON(securedValue));
 
                 } else {
                     console.error("mode is not supported");
@@ -82,7 +83,6 @@ app.directive('responseBrowser', function () {
                 _codeMirror = CodeMirror.fromTextArea(document.getElementById(CODE_MIRROR_TEXTAREA_ID), {
                     mode: "xml",
                     lineWrapping: true,
-                    viewportMargin: Infinity,
                     lineNumbers: true,
                     foldGutter: true,
                     gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
@@ -91,16 +91,19 @@ app.directive('responseBrowser', function () {
                 });
             }
 
+            scope.refreshResponseContainerDimentions = function () {
+                $('#markdown-response > .CodeMirror').height(window.innerHeight - 150 - $('#attributes-container').height());
+                $('#json-response').height(window.innerHeight - 150 - $('#attributes-container').height());
+            }
+
             //hack for correct width of codemirror editor when the content has very long lines
             $(window).resize(function () {
-                var correction = $("#main-navbar").width();
-                scope.windowWidth = window.innerWidth - correction - 40;
-                scope.$apply();
+                scope.refreshResponseContainerDimentions();
+                scope.$apply;
             });
 
             $(document).ready(function () {
-                var correction = $("#main-navbar").width();
-                scope.windowWidth = window.innerWidth - correction - 40;
+                scope.refreshResponseContainerDimentions();
             });
         }
     };

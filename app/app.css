@@ -1,116 +1,15 @@
-/*
- * Base structure
- */
-/* Move down content because we have a fixed navbar that is 50px tall */
-
-body {
-    padding-top: 50px;
-}
-/*
- * Global add-ons
- */
-
-.sub-header {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-/*
- * Top navigation
- * Hide default border to remove 1px line.
- */
-
-.navbar-fixed-top {
-    border: 0;
-}
-/*
- * Sidebar
- */
-/* Hide for mobile, show later */
-
-.sidebar {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .sidebar {
-        position: fixed;
-        top: 51px;
-        bottom: 0;
-        left: 0;
-        z-index: 1000;
-        display: block;
-        padding: 20px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        /* Scrollable contents if viewport is shorter than content. */
-        
-        background-color: #f5f5f5;
-        border-right: 1px solid #eee;
-    }
-}
-/* Sidebar navigation */
-
-.nav-sidebar {
-    margin-right: -21px;
-    /* 20px padding + 1px border */
-    
-    margin-bottom: 20px;
-    margin-left: -20px;
-}
-
-.nav-sidebar > li > a {
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
-    color: #fff;
-    background-color: #428bca;
-}
-/*
- * Main content
- */
-
-.main {
-    padding: 20px;
-}
-
-@media (min-width: 768px) {
-    .main {
-        padding-right: 40px;
-        padding-left: 40px;
-    }
-}
-
-.main .page-header {
-    margin-top: 0;
-}
-/*
- * Placeholder dashboard ideas
- */
-
-.placeholders {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.placeholders h4 {
-    margin-bottom: 0;
-}
-
-.placeholder {
-    margin-bottom: 20px;
-}
-
-.placeholder img {
-    display: inline-block;
-    border-radius: 50%;
+.btn,
+.well,
+.label,
+.dropdown-menu,
+.form-control {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
 }
 
 .action-area {
-    margin: 15px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
     min-width: 130px;
     padding-left: 0px;
 }
@@ -120,11 +19,12 @@ body {
 }
 
 .status-area {
-    margin: 0px 10px 10px 0px;
+    margin: 0px 10px 13px -15px;
 }
 
 .headers-button {
     margin-right: 5px;
+    min-width: 100px;
 }
 
 .headers-area {
@@ -138,11 +38,12 @@ body {
 
 .main-container {
     background-color: #ffffff;
-    min-width: 1500px;
+    margin-top: 5px;
 }
 
 .send-button-area {
     min-width: 150px;
+    padding-left: 0px;
 }
 
 .time {
@@ -150,7 +51,6 @@ body {
 }
 
 .row {
-    margin-right: -40px;
     margin-left: -40px;
 }
 
@@ -158,14 +58,39 @@ pre {
     -webkit-user-select: text;
     padding: 0px 15px;
     background-color: transparent;
-    border: none;
-    padding-top: 10px;
 }
 
-.well{
-    margin-bottom: 3px;
+.well {
+    margin-bottom: 8px;
 }
 
 .CodeMirror {
-    height: auto;
+    height: 100px;
+    border: 1px solid #E7E7E7;
+}
+
+#json-response {
+    border: 1px solid #E7E7E7;
+    border-radius: 0px !important;
+    background-color: #ffffff;
+}
+
+.col-lg-12 {
+    padding-right: 10px;
+    padding-left: 0px !important
+}
+
+#attributes-container{
+    padding-left: 0px;
+    padding-right: 11px;
+}
+
+.centered-logo {
+  position: fixed;
+  width: 323px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
 }
