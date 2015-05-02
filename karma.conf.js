@@ -12,6 +12,7 @@ module.exports = function (config) {
       '../node_modules/jquery/dist/jquery.js',
       '../node_modules/codemirror/lib/codemirror.js',
       '../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js',
+      '../node_modules/pouchdb/dist/pouchdb.js',
       'app.js',
       'common/**/*.js',
       'requester/**/*.js',
