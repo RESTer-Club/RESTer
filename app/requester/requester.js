@@ -34,8 +34,6 @@ angular.module('RESTer.requester', ['ngRoute'])
 .controller('RequesterController', ['$scope', 'Request','Storage',
     function ($scope, Request, Storage) {
         
-        Storage.add();
-
         $scope.methods = AVAILABLE_METHODS;
 
         //Request
@@ -64,7 +62,6 @@ angular.module('RESTer.requester', ['ngRoute'])
                 return;
             }
 
-            var requestTime = Date.now();
             var request = Request.execute($scope.request);
 
             if (typeof (request) === 'undefined') {
@@ -72,14 +69,14 @@ angular.module('RESTer.requester', ['ngRoute'])
             }
 
             request.done(function (data, statusText, xhr) {
-                var responseTime = (Date.now() - requestTime) + ' ms';
+                var responseTime = (Date.now() - xhr.time) + ' ms';
                 $scope.response.set(xhr, responseTime);
                 $scope.refreshResponseContainerDimentions();
                 $scope.$apply();
             });
 
             request.fail(function (xhr) {
-                var responseTime = (Date.now() - requestTime) + 'ms';
+                var responseTime = (Date.now() - xhr.time) + 'ms';
                 $scope.response.set(xhr, responseTime);
                 $scope.$apply();
             });

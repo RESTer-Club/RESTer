@@ -14,10 +14,12 @@ app.factory('Storage', function () {
       else {
         db = new PouchDB(dbName);
       }
-
+        //Debug only
+        window.PouchDB = db;
     },
 
     info: function (callback) {
+
       if (typeof (db) === 'undefined') {
         console.error('Database is not initialized');
         callback('Database is not initialized');
@@ -54,13 +56,43 @@ app.factory('Storage', function () {
       });
     },
 
+    addWithId: function (id, object, callback) {
+      if (typeof (db) === 'undefined') {
+        console.error('Database is not initialized');
+        callback('Database is not initialized');
+        return;
+      }
+
+      if (typeof (object) === 'undefined') {
+        console.error('Object is not provided');
+        callback('Object is not provided');
+        return;
+      }
+
+      if (typeof (id) === 'undefined') {
+        console.error('ID is not provided');
+        callback('ID is not provided');
+        return;
+      }
+
+      object._id = id;
+
+      db.put(JSON.parse(JSON.stringify(object)))
+        .then(function (response) {
+        callback(null, response);
+      })
+        .catch(function (err) {
+        callback(err);
+      });
+    },
+
     get: function (id, callback) {
       if (typeof (db) === 'undefined') {
         console.error('Database is not initialized');
         callback('Database is not initialized');
         return;
       }
-      
+
       if (typeof (id) === 'undefined') {
         console.error('ID is not provided');
         callback('ID is not provided');
@@ -82,13 +114,13 @@ app.factory('Storage', function () {
         callback('Database is not initialized');
         return;
       }
-      
+
       if (typeof (id) === 'undefined') {
         console.error('ID is not provided');
         callback('ID is not provided');
         return;
       }
-      
+
       if (typeof (object) === 'undefined') {
         console.error('Object is not provided');
         callback('Object is not provided');
@@ -114,7 +146,7 @@ app.factory('Storage', function () {
         callback('Database is not initialized');
         return;
       }
-      
+
       if (typeof (id) === 'undefined') {
         console.error('ID is not provided');
         callback('ID is not provided');

@@ -1,6 +1,8 @@
 'use strict';
 
-app.factory('Request', function () {
+app.factory('Request', ['Storage', function (Storage) {
+    
+    Storage.init();
 
     return {
 
@@ -13,7 +15,7 @@ app.factory('Request', function () {
             if (typeof (request.method) === 'undefined' ||
                 typeof (request.uri) === 'undefined' ||
                 typeof (request.headers) === 'undefined'
-            ) {
+                ) {
                 return;
             }
 
@@ -28,6 +30,7 @@ app.factory('Request', function () {
                 url: request.uri,
                 data: verifiedReqBody,
                 beforeSend: function (xhr) {
+                    xhr.time = Date.now();
                     var headers = request.headers;
                     for (var idx = 0; idx < headers.length; idx++) {
                         var header = headers[idx];
@@ -37,8 +40,13 @@ app.factory('Request', function () {
                             }
                         }
                     }
+                },
+                complete: function (xhr) {
+                    Storage.addWithId(request.uri, request, function(err){
+                        
+                    });
                 }
             });
         }
     };
-});
+}]);

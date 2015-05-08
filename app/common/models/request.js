@@ -2,60 +2,66 @@
 
 var RequestModel = (function () { // jshint ignore:line
 
+    var uri = 'https://abv.bg',
+        method = '',
+        body = '',
+        headers = [];
+
     function RequestModel() {
-        this._uri = 'https://abv.bg';
-        this._method = '';
-        this._body = '';
-        this._headers = [];
+
     }
 
     Object.defineProperty(RequestModel.prototype, 'uri', {
         get: function () {
-            return this._uri;
+            return uri;
         },
         set: function (value) {
-            this._uri = value;
-        }
+            uri = value;
+        },
+        enumerable: false
     });
 
     Object.defineProperty(RequestModel.prototype, 'method', {
         get: function () {
-            return this._method;
+            return method;
         },
         set: function (value) {
-            this._method = value;
-        }
+            method = value;
+        },
+        enumerable: false
     });
 
     Object.defineProperty(RequestModel.prototype, 'body', {
         get: function () {
-            return this._body;
+            return body;
         },
         set: function (value) {
-            this._body = value;
-        }
+            body = value;
+        },
+        enumerable: false
     });
 
     Object.defineProperty(RequestModel.prototype, 'headers', {
         get: function () {
-            return this._headers;
+            return headers;
         },
         set: function (value) {
-            this._headers = value;
-        }
+            headers = value;
+        },
+        enumerable: false
     });
 
     RequestModel.prototype.reset = function (isHeaderAreaExpanded, defaultMethod) {
-        this.uri = '';
-        this.method = defaultMethod || AVAILABLE_METHODS[0];
-        this.body = '';
+        uri = '';
+        method = defaultMethod || AVAILABLE_METHODS[0];
+        body = '';
         if (isHeaderAreaExpanded) {
             this.headers = [{
                 name: '',
                 value: ''
             }];
         } else {
-            this.headers = [];
+            headers = [];
         }
     };
 
