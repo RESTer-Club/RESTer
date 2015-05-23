@@ -33,8 +33,6 @@ angular.module('RESTer.requester', ['ngRoute'])
 
 .controller('RequesterController', ['$scope', 'Request','Storage',
     function ($scope, Request, Storage) {
-        
-        Storage.add();
 
         $scope.methods = AVAILABLE_METHODS;
 
