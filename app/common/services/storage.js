@@ -14,8 +14,8 @@ app.factory('Storage', function () {
       else {
         db = new PouchDB(dbName);
       }
-        //Debug only
-        window.PouchDB = db;
+      //Debug only
+      window.PouchDB = db;
     },
 
     info: function (callback) {
@@ -106,6 +106,19 @@ app.factory('Storage', function () {
         callback(err);
         console.log(err);
       });
+    },
+
+    getAll: function (callback) {
+
+      db.allDocs({
+        include_docs: true,
+        attachments: true
+      }).then(function (result) {
+        callback(null, result);
+      }).catch(function (err) {
+        callback(err);
+        console.log(err);
+      })
     },
 
     update: function (id, object, callback) {

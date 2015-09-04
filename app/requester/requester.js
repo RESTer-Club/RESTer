@@ -42,6 +42,10 @@ angular.module('RESTer.requester', ['ngRoute'])
 
         //Response
         $scope.response = new ResponseModel();
+        
+        Storage.getAll(function(err, result){
+            console.log(result);
+        });
 
         $scope.setMethod = function (methodType) {
             if (typeof (methodType) === 'undefined') {
